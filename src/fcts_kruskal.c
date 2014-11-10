@@ -19,14 +19,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "fcts_kruskal.h"
 
 #ifndef COUTMAX
-#define COUTMAX 999
+#define COUTMAX 9999
 #endif
 
 /* Fonctions relatives à la création des matrices contenant les graphes */
 
-int trouver_arbre_couvrant_poid_min(void) { // A modifier prend en parametre un graphe et renvoie un graphe int ** & int **
-	
-	int nb_sommet;
+graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet, sommet sommet_depart) { // A modifier prend en parametre un graphe et renvoie un graphe int ** & int **
 
 	int nbarrete = 0;
 	
@@ -34,23 +32,13 @@ int trouver_arbre_couvrant_poid_min(void) { // A modifier prend en parametre un 
 	
 	/* Definitions des graphes */
 	
-	int **graphe, **couvrantmin;
-
-	fprintf(stdout, "Implantation de l'Algorithme de Kruskal \n");
-    
-	fscanf(stdin, " %d", &nb_sommet);
+	int **couvrantmin;
 
 	/* Allocation des zones mémoires aux graphes */
 	
-	graphe=create_table(nb_sommet);
 	couvrantmin=create_table(nb_sommet);
 
-	initialiser_graphe(graphe, nb_sommet);
 	initialiser_graphe(couvrantmin, nb_sommet);
-	
-	/* Saisie du graphe */
-	
-	saisie_graphe(graphe, nb_sommet);
 
 	/* Tant que l'on a des arretes dans le graphe d'origine on va tenter de les mettres dans l'arbre couvrant de poid min.
 	Nous recherchons l'arrete de poid le plus faible dans le graphe d'origine.
@@ -61,12 +49,12 @@ int trouver_arbre_couvrant_poid_min(void) { // A modifier prend en parametre un 
 	while (nbarrete < nb_sommet-1) {
 		// on trouve l'arrete dans le graph de poids min
 
-		poidmin=trouver_arrete_poid_min(graphe, nb_sommet, &sommetapm, &sommetbpm);
+		poidmin=trouver_arrete_poid_min(graphe_origin, nb_sommet, &sommetapm, &sommetbpm);
 	
 		// On la créé dans le graphe de destination puis on la supprime du graphe d'origine
 		definir_arrete(couvrantmin, nb_sommet, &sommetapm, &sommetbpm, poidmin);
 		
-		definir_arrete(graphe, nb_sommet, &sommetapm, &sommetbpm, COUTMAX);
+		definir_arrete(graphe_origin, nb_sommet, &sommetapm, &sommetbpm, COUTMAX);
 
 		// Recherche d'un cycle dans couvrantmin
 
@@ -79,62 +67,8 @@ int trouver_arbre_couvrant_poid_min(void) { // A modifier prend en parametre un 
 			nbarrete++;
 		}
 	}
-
-	afficher_graphe(couvrantmin, nb_sommet);
-
-	free_table(graphe);
-	free_table(couvrantmin);
 	
-	return 0;
-}
-
-void afficher_graphe(int ** graphe, int nb_sommet) {
-	int i, j;
-	printf("\n Arbre couvrant de poid minimum : \n\n");
-	printf("   0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |\n");
-	for (i=0;i<nb_sommet;i++) {
-		printf("%d |", i);
-		for (j=0;j<nb_sommet;j++) {
-			if (graphe[i][j]!=COUTMAX) {
-				printf("%d |", graphe[i][j]);			
-			}
-			else {
-				printf("_ |");
-			}
-		}
-		printf("\n");
-	}
-}
-
-void initialiser_graphe(int ** graphe, int nb_sommet) {
-	int i,j;
-	for (i=0;i<nb_sommet;i++) {
-		for (j=0;j<nb_sommet;j++) {
-			graphe[i][j]=COUTMAX;
-		}
-	}
-}
-
-void saisie_graphe(int ** graphe, int nb_sommet) {
-	/* La saisie se termine quand le caractere q est saisi, le caractere c ou n'importe quel autre caractere permet de continuer la saisie */
-	int sommeta, sommetb, poidab;
-	char action;
-	
-	fscanf(stdin, " %c", &action);
-	
-	while (action!='q') {
-		fscanf(stdin, " %d %d %d", &sommeta, &sommetb, &poidab);
-		
-		if (((sommeta>=0)&&(sommeta<nb_sommet))&&((sommetb>=0)&&(sommetb<nb_sommet))&&((poidab<COUTMAX)&&((poidab>0)))) {
-			graphe[sommeta][sommetb]=poidab;
-			graphe[sommetb][sommeta]=poidab;
-		}
-		else {
-			printf("Erreur de saisie \n");
-		}
-		
-		fscanf(stdin, " %c", &action);
-	}
+	return couvrantmin;
 }
 
 int trouver_arrete_poid_min(int ** graphe, int nb_sommet, int * sommetapm, int * sommetbpm) {
@@ -227,20 +161,4 @@ int recherche_cycle(int ** graphe, int sommetinit, int nb_sommet) {
 
 	}
 	return detection_cycle;
-}
-
-/* Creation et suppression des tables */
-
-int **create_table(int nb_sommet) {
-	int **table;
-	int i;
-	table = (int **)malloc(sizeof(int *) * nb_sommet);
-	for (i=0;i<nb_sommet;i++) {
-		table[i]= (int *)malloc(sizeof(int) * nb_sommet);
-	}
-	return table;
-}
-
-void free_table(int **table) {
-	free(table);
 }

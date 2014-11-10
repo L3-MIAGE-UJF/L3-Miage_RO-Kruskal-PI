@@ -13,7 +13,16 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef __TOUR_INFIRMIERE_H__
-#define __TOUR_INFIRMIERE_H__
+#ifndef __FCTS_KRUSKAL_H__
+#define __FCTS_KRUSKAL_H__
+
+int **create_table(int nb_sommet);
+void free_table(int **table);
+void afficher_graphe(int ** graphe, int nb_sommet);
+void initialiser_graphe(int ** graphe, int nb_sommet);
+void saisie_graphe(int ** graphe, int nb_sommet);
+
+typedef graphe int **;
+typedef sommet int;
 
 #endif

@@ -13,7 +13,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef __TOUR_INFIRMIERE_H__
-#define __TOUR_INFIRMIERE_H__
+#ifndef __PARCOURS_PROFONDEUR_H__
+#define __PARCOURS_PROFONDEUR_H__
+
+int * parcours_profondeur(graphe G, int nb_sommet, sommet sommet_depart);
+void initialiser_tableau_marque(int * marques, int nb_sommet);
+void marquer_sommet(int * marques, int sommet);
+void lister_voisin(graphe G, int * voisins, int nb_sommet, sommet sommet_courant);
 
 #endif
