@@ -16,6 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "graphes.h"
+
 void afficher_graphe(int ** graphe, int nb_sommet) {
 	int i, j;
 	printf("\n Arbre couvrant de poid minimum : \n\n");

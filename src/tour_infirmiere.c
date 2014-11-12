@@ -20,21 +20,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 int main(int arc, char * arv[]) {
 
-	int **create_table(int nb_sommet);
+	int nb_sommet=0;
+	sommet sommet_depart;
 
-	void initialiser_graphe(int ** graphe, int nb_sommet);
+	graphe graphe_input;
+	graphe graphe_output;
 
-	void saisie_graphe(int ** graphe, int nb_sommet);
+	graphe_input=create_table(nb_sommet);
 
-	//choisir sommet a
+	initialiser_graphe(graphe_input, nb_sommet);
 
-	int ** trouver_arbre_couvrant_poid_min(int **graphe, int nb_sommet);
+	saisie_graphe(graphe_input, nb_sommet);
+
+	sommet_depart=1;//choisir sommet a
+
+	graphe_output=trouver_arbre_couvrant_poid_min(graphe_input, nb_sommet, sommet_depart);
 
 	//construire tableau L pour qu'il contienne resultat du dfs
 
-	void afficher_graphe(int ** graphe, int nb_sommet);
+	afficher_graphe(graphe_output, nb_sommet);
 
-	void free_table(int **table);
+	free_table(graphe_input);
 
 	return 0;
 }

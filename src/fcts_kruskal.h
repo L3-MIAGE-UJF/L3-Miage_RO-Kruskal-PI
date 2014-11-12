@@ -16,6 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef __FCTS_KRUSKAL_H__
 #define __FCTS_KRUSKAL_H__
 
+#include "graphes.h"
+
 graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet, sommet sommet_depart);
 int trouver_arrete_poid_min(int ** graphe, int nb_sommet, int * sommetapm, int * sommetbpm);
 void definir_arrete(int ** graphe, int nb_sommet, int * sommetapm, int * sommetbpm, int poid);

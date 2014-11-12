@@ -17,10 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 
 #include "fcts_kruskal.h"
-
-#ifndef COUTMAX
-#define COUTMAX 9999
-#endif
+#include "graphes.h"
 
 /* Fonctions relatives à la création des matrices contenant les graphes */
 
