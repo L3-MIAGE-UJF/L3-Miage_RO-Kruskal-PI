@@ -33,10 +33,11 @@ int * parcours_profondeur(graphe G, int nb_sommet, sommet sommet_depart) {
   lister_voisin(G, voisins, nb_sommet, sommet_depart)
   
   for (indice=0; indice < nb_sommet; indice++) {
-  	if (voisins[indice]==1&&marques[indice]==1) {
-  		parcours_profondeur(G, nb_sommet, indice);
+  	if (voisins[indice]==1&&marques[indice]==1) { // pas marque
+  		parcours_profondeur(G, nb_sommet, indice); // transmettre sommet marque ? ajout tableau retourne au courant
   	}
   }
+  return
 }
 
 void initialiser_tableau_marque(int * marques, int nb_sommet) {
