@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Fonctions relatives à la création des matrices contenant les graphes */
 
-graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet) { // A modifier prend en parametre un graphe et renvoie un graphe int ** & int **
+graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet, sommet sommet_depart) { // A modifier prend en parametre un graphe et renvoie un graphe int ** & int **
 
 	int nbarrete = 0;
 	

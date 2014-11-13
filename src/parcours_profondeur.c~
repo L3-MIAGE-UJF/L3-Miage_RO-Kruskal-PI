@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "parcours_profondeur.h"
 
-void parcours_profondeur(int * marques, graphe G, int nb_sommet, sommet sommet_depart) {
+void parcours_profondeur(int * marques[], graphe G, int nb_sommet, sommet sommet_depart) {
   int voisins[nb_sommet];
 
   int indice;

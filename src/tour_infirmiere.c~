@@ -48,10 +48,6 @@ int main(int arc, char * arv[]) {
 
 	afficher_graphe(graphe_output, nb_sommet);
 
-
-	//afficher marques 
-
-
 	free_table(graphe_input);
 
 	return 0;
