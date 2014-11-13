@@ -3,8 +3,11 @@ CFLAGS=-Wall -Werror
 
 all : tour_infirmiere
 	
-tour_infirmiere : tour_infirmiere.o fcts_kruskal.o graphes.o
-	$(CC) $(CFLAGS) tour_infirmiere.o fcts_kruskal.o graphes.o -o tour_infirmiere
+tour_infirmiere : tour_infirmiere.o fcts_kruskal.o graphes.o parcours_profondeur.o
+	$(CC) $(CFLAGS) tour_infirmiere.o fcts_kruskal.o graphes.o parcours_profondeur.o -o tour_infirmiere
+
+parcours_profondeur.o : parcours_profondeur.c parcours_profondeur.h
+	$(CC) $(CFLAGS) -c parcours_profondeur.c
 
 tour_infirmiere.o : tour_infirmiere.c tour_infirmiere.h fcts_kruskal.h graphes.h
 	$(CC) $(CFLAGS) -c tour_infirmiere.c

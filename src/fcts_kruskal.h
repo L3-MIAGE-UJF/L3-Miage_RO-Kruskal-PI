@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "graphes.h"
 
-graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet, sommet sommet_depart);
+graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet);
 int trouver_arrete_poid_min(int ** graphe, int nb_sommet, int * sommetapm, int * sommetbpm);
 void definir_arrete(int ** graphe, int nb_sommet, int * sommetapm, int * sommetbpm, int poid);
 void initialiser_tableau_marque(int * marque, int nb_sommet);

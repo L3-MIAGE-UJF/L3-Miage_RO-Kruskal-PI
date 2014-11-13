@@ -15,42 +15,56 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 #include "fcts_kruskal.h"
+#include "parcours_profondeur.h"
+
+void init_alea() {
+	srand(time(NULL)); // initialisation de rand
+}
 
 int main(int arc, char * arv[]) {
 
 	int nb_sommet=0;
 	int * marques;
-
+	int * visites;
+	
 	sommet sommet_depart;
 
 	graphe graphe_input;
 	graphe graphe_output;
+	
+	init_alea();
+	
+	// lecture du nombre de sommets
+	fscanf(stdin, "%d ", &nb_sommet);
 
-	fscanf(stdin, "%d ", &,n_sommet);
-
+	// allocation mémoire pour le graph et le tableau des sommets marqués 
 	graphe_input=create_table(nb_sommet);
 
 	marques=malloc(sizeof(int)*nb_sommet);
+	visites=malloc(sizeof(int)*nb_sommet);
 
-	initialiser_tableau_marque(marques, nb_sommet);
-
+	// initialisation à l'infinie (COUTMAX) pour chaque sommet du graph ( nécessaire pour l'algo de Kruskal)
 	initialiser_graphe(graphe_input, nb_sommet);
 
+	// saisie du graph sous la forme de couples de sommets adjacents associés à un poids.
 	saisie_graphe(graphe_input, nb_sommet);
 
-	graphe_output=trouver_arbre_couvrant_poid_min(graphe_input, nb_sommet;
+	graphe_output=trouver_arbre_couvrant_poid_min(graphe_input, nb_sommet);
 
-	sommet_depart=1;//choisir sommet a selectionner premier sommet existant
+	// initialisation à aucun sommet marqué
+	initialiser_tableau_marque_dfs(marques, nb_sommet);
+	initialiser_tableau_visites(visites, nb_sommet);
 
-	parcours_profondeur(marques, graphe_input, nb_sommet, sommet_depart)
+	selection_premier_sommet(&sommet_depart, graphe_output, nb_sommet);
+
+	parcours_profondeur(marques, visites, graphe_output, nb_sommet, sommet_depart);
 
 	afficher_graphe(graphe_output, nb_sommet);
 
-
-	//afficher marques 
-
+	afficher_tableau_sommet_visite(visites, nb_sommet);
 
 	free_table(graphe_input);
 

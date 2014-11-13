@@ -46,6 +46,11 @@ void initialiser_graphe(int ** graphe, int nb_sommet) {
 }
 
 void saisie_graphe(int ** graphe, int nb_sommet) {
+
+	/*
+	 * A modifier selon le type de fichier fourni par le prof, si il veut bien nous en fournir un en guise d'exemple
+	 */
+
 	/* La saisie se termine quand le caractere q est saisi, le caractere c ou n'importe quel autre caractere permet de continuer la saisie */
 	int sommeta, sommetb, poidab;
 	char action;
