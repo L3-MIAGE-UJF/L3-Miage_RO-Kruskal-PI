@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef __GRAPHES_H__
 #define __GRAPHES_H__
 
-#define COUTMAX 9999
+#define COUTMAX 99999
 
 int **create_table(int nb_sommet);
 void free_table(int **table);

@@ -20,8 +20,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 void afficher_graphe(int ** graphe, int nb_sommet) {
 	int i, j;
-	printf("\n Arbre couvrant de poid minimum : \n\n");
-	printf("   0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |\n");
+
+	printf("   ");
+	for (i=0;i<nb_sommet;i++) {
+		printf("%d |", i);
+	}
+	printf("\n");
 	for (i=0;i<nb_sommet;i++) {
 		printf("%d |", i);
 		for (j=0;j<nb_sommet;j++) {

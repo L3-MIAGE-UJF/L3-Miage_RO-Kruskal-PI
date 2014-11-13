@@ -47,10 +47,10 @@ graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet) { //
 		// on trouve l'arrete dans le graph de poids min
 
 		poidmin=trouver_arrete_poid_min(graphe_origin, nb_sommet, &sommetapm, &sommetbpm);
-	
+
 		// On la créé dans le graphe de destination puis on la supprime du graphe d'origine
 		definir_arrete(couvrantmin, nb_sommet, &sommetapm, &sommetbpm, poidmin);
-		
+
 		definir_arrete(graphe_origin, nb_sommet, &sommetapm, &sommetbpm, COUTMAX);
 
 		// Recherche d'un cycle dans couvrantmin
@@ -64,7 +64,7 @@ graphe trouver_arbre_couvrant_poid_min(graphe graphe_origin, int nb_sommet) { //
 			nbarrete++;
 		}
 	}
-	
+
 	return couvrantmin;
 }
 

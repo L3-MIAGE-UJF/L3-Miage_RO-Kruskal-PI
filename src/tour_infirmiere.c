@@ -46,7 +46,7 @@ int main(int arc, char * arv[]) {
 	marques=malloc(sizeof(int)*nb_sommet);
 	visites=malloc(sizeof(int)*nb_sommet);
 
-	// initialisation à l'infinie (COUTMAX) pour chaque sommet du graph ( nécessaire pour l'algo de Kruskal)
+	// initialisation à l'infini (COUTMAX) pour chaque sommet du graph ( nécessaire pour l'algo de Kruskal)
 	initialiser_graphe(graphe_input, nb_sommet);
 
 	// saisie du graph sous la forme de couples de sommets adjacents associés à un poids.
@@ -54,7 +54,6 @@ int main(int arc, char * arv[]) {
 
 	graphe_output=trouver_arbre_couvrant_poid_min(graphe_input, nb_sommet);
 
-	// initialisation à aucun sommet marqué
 	initialiser_tableau_marque_dfs(marques, nb_sommet);
 	initialiser_tableau_visites(visites, nb_sommet);
 
@@ -62,7 +61,7 @@ int main(int arc, char * arv[]) {
 
 	parcours_profondeur(marques, visites, graphe_output, nb_sommet, sommet_depart);
 
-	afficher_graphe(graphe_output, nb_sommet);
+//	afficher_graphe(graphe_output, nb_sommet);
 
 	afficher_tableau_sommet_visite(visites, nb_sommet);
 
