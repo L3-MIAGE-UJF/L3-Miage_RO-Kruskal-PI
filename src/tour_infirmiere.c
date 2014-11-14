@@ -54,6 +54,8 @@ int main(int arc, char * arv[]) {
 
 	graphe_output=trouver_arbre_couvrant_poid_min(graphe_input, nb_sommet);
 
+//afficher_graphe(graphe_output, nb_sommet);
+
 	initialiser_tableau_marque_dfs(marques, nb_sommet);
 	initialiser_tableau_visites(visites, nb_sommet);
 
