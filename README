@@ -3,17 +3,38 @@ projet_infirmieres
 
 
 
-OBJECTIF : 
+OBJECTIF : Nous souhaitons obtenir une liste de sommet qui correspond au trajet qu'une infirmière effectuera pour rendre visite a tous ses patients.
+	Cette liste doit être obtenue a partir d'un graphe representant l'ensemble des lieux a visiter et de la distance entre chaque lieu.
 
 UTILISATION : 
 
-  $ 
+  $ ./tour_infirmiere < graphes/graphesX.graph
 
-DESCRIPTION :
+  $ ./tour_infirmiere
+
+NOTES : La saisie et l'affichage du graphe est facilement modifiable. La fonction saisie_graphe() dans graphes.c permet de modifier le type de saisie. L'affichage se fait a travers afficher_graphe().
 
 COMPILATION :
 
 	Pour compiler ce programme un Makefile est disponible dans le dossier src/
 	$ make
 
-EXECUTION :
+SAISIE DU GRAPHE :
+
+La saisie d'un graphe se fait ainsi sur l'entrée standard
+
+$ nombre de sommet
+
+$ c idsommeta idsommetb valeurarrete
+$ [...]
+
+$ q
+
+En premier lieu, il faut indiquer le nombre entier de sommet du graphe.
+Puis le caractère c permet de continuer afin de saisir un couple sommeta sommetb et valeurarrete.
+Les identifiants des sommets sont des entiers.
+La valeur de l'arrete correspond au poid présent sur l'arrète, ce poid est compris entre 0 et 998.
+On peut renouveller cette opération autant que souhaité.
+La saisie d'un même couple de sommet deux fois de suite, écrase la valeur précédente.
+La saisie du caractère q termine la saisie.
+Le programme effecture alors l'algorithme sur le graphe saisi et affiche l'arbre couvrant de poid minimum.

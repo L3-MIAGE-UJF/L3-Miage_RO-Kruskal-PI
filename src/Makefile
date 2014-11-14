@@ -4,7 +4,7 @@ CFLAGS=-Wall -Werror
 all : tour_infirmiere
 	
 tour_infirmiere : tour_infirmiere.o fcts_kruskal.o graphes.o parcours_profondeur.o
-	$(CC) $(CFLAGS) tour_infirmiere.o fcts_kruskal.o graphes.o parcours_profondeur.o -o tour_infirmiere
+	$(CC) $(CFLAGS) tour_infirmiere.o fcts_kruskal.o graphes.o parcours_profondeur.o -o ../tour_infirmiere
 
 parcours_profondeur.o : parcours_profondeur.c parcours_profondeur.h
 	$(CC) $(CFLAGS) -c parcours_profondeur.c
